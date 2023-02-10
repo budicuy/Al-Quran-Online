@@ -47,7 +47,7 @@ export default function Home() {
                 <input
                     type="text"
                     id="search"
-                    className="w-full px-4 py-2 mt-5 bg-gray-100 border rounded-lg shadow-md focus:text-purple-500 focus:text-center placeholder:text-center focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-600"
+                    className="w-full py-3 mt-5 text-center text-purple-500 bg-gray-100 border rounded-lg shadow-md focus:text-purple-500 focus:text-center placeholder:text-center focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-600"
                     placeholder="🔎 Cari Surah ... (CTRL + /)"
                     onChange={(e) => setSearch(e.target.value)}
                 />
@@ -116,7 +116,7 @@ export default function Home() {
                 </div>
             </div>
             <footer>
-                <div className="py-3 text-center bg-purple-900 font- text-white/60">
+                <div className="px-5 py-3 text-center bg-purple-900 font- text-white/60">
                     <span>
                         Copyright &copy; {new Date().getFullYear()} Al-Qur'an -
                         All Rights Reserved | Powered by <u>Tailwindcss</u> &{" "}
