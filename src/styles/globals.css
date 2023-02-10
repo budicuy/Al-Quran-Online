@@ -1,36 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    html {
-        @apply bg-gray-200 font-quicksand;
-    }
+ html {
+  @apply bg-gray-200 font-quicksand;
+ }
 
-    ::-webkit-scrollbar {
-        width: 0.5rem;
-    }
+ ::-webkit-scrollbar {
+  width: 0.5rem;
+ }
 
-    ::-webkit-scrollbar-track {
-        @apply bg-white;
-    }
+ ::-webkit-scrollbar-track {
+  @apply bg-white;
+ }
 
-    ::-webkit-scrollbar-thumb {
-        @apply bg-purple-800;
-    }
+ ::-webkit-scrollbar-thumb {
+  @apply bg-purple-800;
+ }
 
-    ::-webkit-scrollbar-thumb:hover {
-        @apply bg-purple-900;
-    }
+ ::-webkit-scrollbar-thumb:hover {
+  @apply bg-purple-900;
+ }
 
-    ::-webkit-scrollbar-button {
-        @apply bg-purple-800;
-    }
+ ::-webkit-scrollbar-button {
+  @apply bg-purple-800;
+ }
 }
 
 @layer components {
-    .buttonAudio {
-        @apply px-4 py-2 font-bold text-white bg-purple-800 rounded;
-    }
+ .buttonAudio {
+  @apply px-4 py-2 font-bold text-white bg-purple-800 rounded;
+ }
 }
