@@ -30,18 +30,16 @@ export default function Home() {
             </Head>
             <Navbar />
             <div className="container px-5 md:px-14">
-                <form>
-                    <input
-                        type="text"
-                        className="w-full px-4 py-2 mt-5 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-purple-600"
-                        placeholder="Cari Surah"
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                </form>
+                <input
+                    type="text"
+                    className="w-full px-4 py-2 mt-5 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-purple-600"
+                    placeholder="Cari Surah"
+                    onChange={(e) => setSearch(e.target.value)}
+                />
                 <div className="w-full mt-5">
                     <div className="grid gap-3 text-purple-500 md:grid-cols-3">
                         {loading ? (
-                            <div className="flex justify-center">
+                            <div className="flex justify-center w-full md:col-span-3">
                                 <svg
                                     className="w-10 h-10 text-purple-500 animate-spin"
                                     xmlns="http://www.w3.org/2000/svg"
