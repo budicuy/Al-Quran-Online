@@ -29,17 +29,17 @@ export default function Home() {
                 <title>Al-Qur'an</title>
             </Head>
             <Navbar />
-            <div className="container px-5 md:px-14">
+            <div className="container min-h-screen px-5 mb-5 md:px-14">
                 <input
                     type="text"
-                    className="w-full px-4 py-2 mt-5 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    placeholder="Cari Surah"
+                    className="w-full px-4 py-2 mt-5 bg-gray-100 border rounded-lg shadow-md focus:text-purple-500 focus:text-center placeholder:text-center focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-600"
+                    placeholder="🔎 Cari Surah ..."
                     onChange={(e) => setSearch(e.target.value)}
                 />
                 <div className="w-full mt-5">
                     <div className="grid gap-3 text-purple-500 md:grid-cols-3">
                         {loading ? (
-                            <div className="flex justify-center w-full md:col-span-3">
+                            <div className="flex justify-center w-full mt-5 md:mt-10 md:col-span-3">
                                 <svg
                                     className="w-10 h-10 text-purple-500 animate-spin"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -66,12 +66,13 @@ export default function Home() {
                                 .filter((surah) => {
                                     // ketika search kosong maka akan menampilkan semua surah yang ada di API
                                     // jika tidak maka akan menampilkan namalatin surah yang sesuai dengan inputan user
+                                    // abaikan huruf besar kecil spasi dan simbol yang ada di inputan user
                                     if (search == "") {
                                         return surah;
                                     }
                                     if (
                                         surah.namaLatin
-                                            // abaikan huruf besar kecil spasi dan simbol yang ada di inputan user
+
                                             .toLowerCase()
                                             .replace(/[^a-zA-Z ]/g, "")
                                             .includes(
@@ -86,7 +87,7 @@ export default function Home() {
                                 .map((surah) => (
                                     <div className="p-4 bg-gray-100 rounded shadow-md cursor-pointer hover:bg-white">
                                         <h3 className="text-lg font-semibold ">
-                                            No. {surah.nomor} {surah.namaLatin}
+                                            {surah.nomor}. {surah.namaLatin}
                                         </h3>
                                         <hr className="border-b-1" />
                                         <p className="mt-5 text-5xl text-right ">
@@ -99,6 +100,14 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <footer>
+                <div>
+                    <span>
+                        Copyright &copy; {new Date().getFullYear()} Al-Qur'an -
+                        All Rights Reserved | Made with BUDI
+                    </span>
+                </div>
+            </footer>
         </div>
     );
 }

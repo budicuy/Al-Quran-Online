@@ -47,8 +47,8 @@ export default function Navbar() {
                             </nav>
                         </div>
 
-                        <div className="flex items-center gap-4">
-                            <div className="sm:flex sm:gap-4">
+                        <div className="flex items-center gap-4 ">
+                            <div className="hidden md:flex sm:gap-4">
                                 <a
                                     className="rounded-md bg-red-400 px-5 py-2.5 text-sm font-medium text-white shadow"
                                     href="/"
