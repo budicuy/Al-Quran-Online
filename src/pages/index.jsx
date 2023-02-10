@@ -23,6 +23,20 @@ export default function Home() {
         getSurah();
     }, []);
 
+    // jika user mengetika CTRL + F maka akan focus ke input
+    useEffect(() => {
+        document.addEventListener("keydown", (e) => {
+            if (e.ctrlKey && e.key === "/") {
+                document.getElementById("search").focus();
+                // jika user menekan ESC maka akan menghilangkan focus
+            } else if (e.key === "Escape") {
+                document.getElementById("search").blur();
+            } else if (e.key === "Enter") {
+                document.getElementById("search").blur();
+            }
+        });
+    }, []);
+
     return (
         <div>
             <Head>
@@ -32,8 +46,9 @@ export default function Home() {
             <div className="container min-h-screen px-5 mb-5 md:px-14">
                 <input
                     type="text"
+                    id="search"
                     className="w-full px-4 py-2 mt-5 bg-gray-100 border rounded-lg shadow-md focus:text-purple-500 focus:text-center placeholder:text-center focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    placeholder="🔎 Cari Surah ..."
+                    placeholder="🔎 Cari Surah ... (CTRL + /)"
                     onChange={(e) => setSearch(e.target.value)}
                 />
                 <div className="w-full mt-5">
@@ -72,7 +87,6 @@ export default function Home() {
                                     }
                                     if (
                                         surah.namaLatin
-
                                             .toLowerCase()
                                             .replace(/[^a-zA-Z ]/g, "")
                                             .includes(
@@ -80,6 +94,7 @@ export default function Home() {
                                                     .toLowerCase()
                                                     .replace(/[^a-zA-Z ]/g, "")
                                             )
+                                        // jika tidak ada maka memberikan pesan pencarian tidak ditemukan
                                     ) {
                                         return surah;
                                     }
@@ -101,10 +116,13 @@ export default function Home() {
                 </div>
             </div>
             <footer>
-                <div>
+                <div className="py-3 text-center bg-purple-900 font- text-white/60">
                     <span>
                         Copyright &copy; {new Date().getFullYear()} Al-Qur'an -
-                        All Rights Reserved | Made with BUDI
+                        All Rights Reserved | Powered by <u>Tailwindcss</u> &{" "}
+                        <u>Nextjs</u>
+                        <br />
+                        made with ❤️ by <u>budicuy.my.id</u>
                     </span>
                 </div>
             </footer>
