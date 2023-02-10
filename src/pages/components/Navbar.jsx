@@ -25,7 +25,7 @@ export default function Navbar() {
                         <div className="md:flex md:items-center md:gap-12">
                             <a className="block text-white/80" href="/">
                                 <span className="text-2xl font-bold font-quicksand">
-                                    📖 EQuran.com
+                                    📖 Al - Qur'an
                                 </span>
                             </a>
                         </div>
