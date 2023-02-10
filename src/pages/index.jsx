@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Link from "next/link";
+import Footer from "./components/Footer";
 
 export default function Home() {
     const [surah, setSurah] = useState([]);
@@ -45,7 +46,7 @@ export default function Home() {
                 <title>Al-Qur'an</title>
             </Head>
             <Navbar />
-            <div className="container min-h-screen px-5 mb-5 md:px-14">
+            <div className="container relative min-h-screen px-5 mb-5 md:px-14">
                 <input
                     type="text"
                     id="search"
@@ -129,17 +130,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <footer>
-                <div className="px-5 py-3 text-center bg-purple-900 font- text-white/60">
-                    <span>
-                        Copyright &copy; {new Date().getFullYear()} Al-Qur'an -
-                        All Rights Reserved | Powered by <u>Tailwindcss</u> &{" "}
-                        <u>Nextjs</u>
-                        <br />
-                        made with ❤️ by <u>budicuy.my.id</u>
-                    </span>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }

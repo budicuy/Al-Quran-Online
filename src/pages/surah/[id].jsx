@@ -2,7 +2,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
-import Link from "next/link";
+import Footer from "../components/Footer";
+import Button from "../components/Button";
 
 export default function ({ data }) {
     const [surah, setSurah] = useState([]);
@@ -33,7 +34,7 @@ export default function ({ data }) {
                 <title>Surah {surah.namaLatin}</title>
             </Head>
             <Navbar />
-            <div className="container px-5 mt-5 md:px-12">
+            <div className="container px-5 mt-5 mb-5 md:px-12">
                 <div className="grid">
                     <div className="p-4 bg-gray-100 border rounded-lg shadow-md md:p-8">
                         <div className="flex justify-between">
@@ -48,9 +49,9 @@ export default function ({ data }) {
                             </span>
                         </div>
                         <hr className="mt-3 border-b-2" />
-                        <div className="grid grid-cols-2 gap-2 mt-4">
+                        <div className="flex flex-wrap justify-center gap-5 mt-4 md:justify-between">
                             <select
-                                className="p-2 overflow-hidden text-xs font-semibold text-purple-700 bg-white border-2 border-purple-300 rounded-lg md:text-lg focus:right-2 ring-purple-700"
+                                className="w-full p-2 overflow-hidden text-xs font-semibold text-purple-700 bg-white border-2 border-purple-300 rounded-lg md:w-1/2 md:max-w-none md:text-lg focus:right-2 ring-purple-700"
                                 onChange={(e) => {
                                     const audio =
                                         document.querySelector("#audioPlayer");
@@ -81,55 +82,45 @@ export default function ({ data }) {
                                 id="audioPlayer"
                                 className="hidden"
                             ></audio>
-                            <div className="flex justify-end gap-2 md:gap-5 ">
-                                <button
-                                    className="buttonAudio"
-                                    id="play"
-                                    onClick={() => {
-                                        const audio =
-                                            document.querySelector(
-                                                "#audioPlayer"
-                                            );
-                                        audio.play();
-                                        const pause =
-                                            document.querySelector("#pause");
-                                        const play =
-                                            document.querySelector("#play");
-                                        // add class hidden
-                                        pause.classList.remove("hidden");
-                                        play.classList.add("hidden");
-                                    }}
-                                >
-                                    Play
-                                </button>
-                                <button
-                                    id="pause"
-                                    className="hidden buttonAudio"
-                                    onClick={() => {
-                                        const audio =
-                                            document.querySelector(
-                                                "#audioPlayer"
-                                            );
-                                        audio.pause();
-                                        const pause =
-                                            document.querySelector("#pause");
-                                        const play =
-                                            document.querySelector("#play");
-                                        // add class hidden
-                                        pause.classList.add("hidden");
-                                        play.classList.remove("hidden");
-                                    }}
-                                >
-                                    Pause
-                                </button>
-                                <div className="flex items-center justify-center px-4 py-2 font-bold text-white bg-red-800 rounded">
-                                    <Link href="/">Tafsir</Link>
-                                </div>
-                            </div>
+                            <Button />
                         </div>
                     </div>
+                    {ayat.map((ayat, index) => {
+                        return (
+                            <div
+                                className="py-5 mt-5 bg-gray-100 border rounded-lg shadow-md hover:bg-white"
+                                key={index}
+                            >
+                                <div className="flex justify-between px-5">
+                                    <div className="text-lg font-semibold text-purple-600 md:text-xl ">
+                                        <span>
+                                            {surah.nomor} : {ayat.nomorAyat}
+                                        </span>
+                                    </div>
+                                    <span>
+                                        <p className="mt-2 text-lg font-semibold text-purple-500 md:text-xl">
+                                            {ayat.id}
+                                        </p>
+                                    </span>
+                                </div>
+                                <hr className="my-2 border-b-2" />
+                                <div className="leading-none">
+                                    <p className="p-5 text-3xl font-semibold leading-[50px] text-right text-purple-800 md:text-4xl">
+                                        {ayat.teksArab}
+                                    </p>
+                                    <p className="block px-5 mt-5 text-lg font-semibold text-purple-700">
+                                        {ayat.teksLatin}
+                                    </p>
+                                    <p className="px-5 text-base font-semibold text-purple-400">
+                                        {ayat.teksIndonesia}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
