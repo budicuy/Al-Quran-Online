@@ -7,7 +7,7 @@ export default function Home() {
     const [surah, setSurah] = useState([]);
     const [search, setSearch] = useState([]);
     const [loading, setLoading] = useState(false);
-
+    ``;
     const getSurah = async () => {
         setLoading(true);
         try {
