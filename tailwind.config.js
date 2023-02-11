@@ -7,6 +7,7 @@ module.exports = {
     theme: {
         fontFamily: {
             amiri: ['Amiri Quran', 'serif'],
+            quicksand: ['Quicksand', 'sans-serif'],
         },
         container: {
             center: true,

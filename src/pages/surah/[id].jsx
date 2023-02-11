@@ -47,8 +47,9 @@ export default function Detail({ data }) {
       <Head>
         <title>Surah {surah.namaLatin}</title>
         <link
-          href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap"
-          rel="stylesheet"></link>
+          href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Quicksand&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Navbar />
       <div className="grid items-center min-h-screen">

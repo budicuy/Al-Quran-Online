@@ -45,6 +45,10 @@ export default function Home() {
     <div>
       <Head>
         <title>Al-Qur'an</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Quicksand&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Navbar />
       <div className="container relative min-h-screen px-5 mb-5 md:px-14">
