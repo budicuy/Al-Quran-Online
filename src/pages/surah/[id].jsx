@@ -36,12 +36,12 @@ export default function ({ data }) {
       <div className="container px-5 mt-5 mb-5 md:px-12">
         <div className="grid">
           <div className="p-4 bg-gray-100 border rounded-lg shadow-md md:p-8">
-            <div className="flex justify-between">
-              <span className="text-lg font-semibold text-purple-600 md:text-xl ">
-                {surah.namaLatin} * {surah.arti}
+            <div className="flex flex-wrap justify-center text-center md:justify-between">
+              <span className="text-lg font-semibold text-purple-600 md:text-left md:text-xl ">
+                {surah.namaLatin} - {surah.arti}
               </span>
               <span>
-                <p className="mt-2 text-lg font-semibold text-purple-500 md:text-xl">
+                <p className="mt-2 text-lg font-semibold text-purple-500 md:text-right md:text-xl">
                   {surah.tempatTurun} -{' '}
                   {surah.jumlahAyat} Ayat
                 </p>
@@ -109,10 +109,10 @@ export default function ({ data }) {
                 </div>
                 <hr className="my-2 border-b-2" />
                 <div className="leading-none">
-                  <p className="p-5 text-3xl font-semibold leading-[50px] md:leading-[70px] text-right text-purple-800 md:text-4xl">
+                  <p className="p-5 text-3xl font-amiri font-semibold leading-[70px] md:leading-[100px] text-right text-purple-800 md:text-4xl">
                     {ayat.teksArab}
                   </p>
-                  <p className="block px-5 mt-5 text-lg font-semibold text-purple-700">
+                  <p className="block px-5 mt-5 text-lg font-semibold leading-relaxed text-purple-700">
                     {ayat.teksLatin}
                   </p>
                   <p className="px-5 mt-1 text-base italic font-semibold text-purple-400">
