@@ -8,7 +8,10 @@ export default function Footer() {
             {new Date().getFullYear()} Al-Qur'an -
             All Rights Reserved
             <br />
-            ❤️ made by <u>budicuy.my.id</u>
+            ❤️ made by{' '}
+            <a href="https://budicuy.my.id/">
+              <u>budicuy.my.id</u>
+            </a>
           </span>
         </div>
       </footer>

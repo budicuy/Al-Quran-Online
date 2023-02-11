@@ -39,9 +39,9 @@ export default function ({ data }) {
         <title>Surah {surah.namaLatin}</title>
       </Head>
       <Navbar />
-      <div className="grid items-center justify-between min-h-screen">
+      <div className="grid items-center justify-center min-h-screen">
         {loading ? (
-          <div className="flex justify-center w-full mt-5 md:mt-10 md:col-span-3">
+          <div className="flex justify-center w-full mt-5 md:mt-10">
             <svg
               className="w-10 h-10 text-purple-500 animate-spin"
               xmlns="http://www.w3.org/2000/svg"
