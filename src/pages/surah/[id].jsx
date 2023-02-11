@@ -175,7 +175,8 @@ export default function Detail({ data }) {
                     className="px-2 py-1 font-semibold text-white border rounded bg-green-600/80"
                     href={`/surah/${surahSebelumnya.nomor}`}>
                     ⬅ {surahSebelumnya.namaLatin}{' '}
-                    - {surahSebelumnya.nama}
+                    - {surahSebelumnya.nomor} :{' '}
+                    {surahSebelumnya.jumlahAyat}
                   </Link>
                 ) : (
                   <span></span>
@@ -185,7 +186,8 @@ export default function Detail({ data }) {
                     className="px-2 py-1 font-semibold text-white border rounded bg-blue-600/80"
                     href={`/surah/${surahSanjutnya.nomor}`}>
                     {surahSanjutnya.namaLatin} -{' '}
-                    {surahSanjutnya.nama} ➡
+                    {surahSanjutnya.nomor} :{' '}
+                    {surahSanjutnya.jumlahAyat} ➡
                   </Link>
                 ) : (
                   <span></span>
