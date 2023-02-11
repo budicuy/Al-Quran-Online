@@ -29,7 +29,7 @@ export default function Detail({ data }) {
     setTimeout(() => {
       document.querySelector('#audioPlayer').src =
         Object.values(data.audioFull)[0]
-    }, 1000)
+    }, 200)
   }, [data])
 
   console.log(data)
@@ -46,6 +46,9 @@ export default function Detail({ data }) {
     <div>
       <Head>
         <title>Surah {surah.namaLatin}</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap"
+          rel="stylesheet"></link>
       </Head>
       <Navbar />
       <div className="grid items-center min-h-screen">
@@ -152,7 +155,7 @@ export default function Detail({ data }) {
                     </div>
                     <hr className="my-2 border-b-2" />
                     <div className="leading-none">
-                      <p className="p-5 text-3xl font-amiri font-semibold leading-[70px] md:leading-[100px] text-right text-purple-800 md:text-4xl">
+                      <p className=" font-amiri p-5 text-3xl font-semibold leading-[70px] md:leading-[100px] text-right text-purple-800 md:text-4xl">
                         {ayat.teksArab}
                       </p>
                       <p className="block px-5 mt-5 text-lg font-semibold leading-relaxed text-purple-700">
