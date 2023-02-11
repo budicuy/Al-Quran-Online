@@ -1,98 +1,82 @@
 import { useEffect, useState } from 'react'
+import { Divide as Hamburger } from 'hamburger-react'
+export default function NavbarMenu() {
+  const [navbar, setNavbar] = useState(false)
+  const [scroll, setScroll] = useState(false)
 
-export default function Navbar() {
-  const [nav, setNav] = useState([])
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        setScroll(true)
+      } else {
+        setScroll(false)
+      }
+    })
+  }, [])
 
   const navItems = [
     { name: 'Home', link: '/', icon: '🏠' },
+    {
+      name: 'Tafsir',
+      link: '/tafsir',
+      icon: '📜',
+    },
     {
       name: 'About',
       link: '/about',
       icon: '👨‍💻',
     },
-    {
-      name: 'Contact',
-      link: '/contact',
-      icon: '📞',
-    },
-    {
-      name: 'Blog',
-      link: '/blog',
-      icon: '📒',
-    },
+    { name: 'Blog', link: '/blog', icon: '📒' },
   ]
-
-  useEffect(() => {
-    setNav(navItems)
-  }, [])
 
   return (
     <div>
-      <header
-        aria-label="Site Header"
-        className="bg-purple-800 shadow-lg">
-        <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="md:flex md:items-center md:gap-12">
-              <a
-                className="block text-white/80"
-                href="/">
-                <span className="text-2xl font-bold font-quicksand">
-                  📖 Al - Qur'an
-                </span>
+      <nav
+        className={`w-full bg-purple-900 shadow  text-gray-200${
+          scroll
+            ? 'fixed top-0 z-50 transition-all duration-300'
+            : ''
+        }`}
+        id="navbar">
+        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+          <div>
+            <div className="flex items-center justify-between py-3 md:py-5 md:block">
+              <a href="/">
+                <h2 className="text-2xl font-bold md:text-3xl">
+                  EQuran
+                </h2>
               </a>
-            </div>
-
-            <div className="hidden md:block">
-              <nav aria-label="Site Nav">
-                <ul className="flex items-center gap-6 text-sm">
-                  {navItems.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.link}
-                        className="text-lg font-semibold text-white/75 hover:text-white">
-                        {item.icon} {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-
-            <div className="flex items-center gap-4 ">
-              <div className="hidden md:flex sm:gap-4">
-                <a
-                  className="rounded-md bg-red-400 px-5 py-2.5 text-sm font-medium text-white shadow"
-                  href="/">
-                  🚪 Login
-                </a>
-
-                <div className="hidden sm:flex">
-                  <a
-                    className="rounded-md bg-blue-600 hover:bg-blue-300 px-5 py-2.5 text-sm font-medium text-white"
-                    href="/">
-                    📝 Register
-                  </a>
-                </div>
-              </div>
-
-              <div className="block md:hidden">
-                <button className="p-2 text-gray-600 transition bg-gray-100 rounded hover:text-gray-600/75">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2">
-                    <path d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                </button>
+              <div className="md:hidden">
+                <Hamburger
+                  toggled={navbar}
+                  toggle={setNavbar}
+                  rounded
+                />
               </div>
             </div>
           </div>
+          <div>
+            <div
+              className={`flex-1 justify-self-center transition-all duration-300 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+                navbar
+                  ? '-translate-x-0 block md:relative'
+                  : '-translate-x-full md:translate-x-0 absolute left-0  md:relative'
+              }`}>
+              <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                {navItems.map((item, index) => (
+                  <li
+                    key={index}
+                    className="p-2 font-semibold text-gray-200 transition-all duration-300 rounded md:text-xl hover:text-purple-800 hover:bg-gray-200/50 ">
+                    <a href={item.link}>
+                      {item.icon} {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-      </header>
+      </nav>
     </div>
   )
 }
