@@ -137,7 +137,6 @@ export default function Home() {
         </div>
       </div>
       <Footer />
-      npm i nprogress
     </div>
   )
 }
