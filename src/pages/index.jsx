@@ -109,7 +109,7 @@ export default function Home() {
                   <Link
                     key={index}
                     href={`/surah/${surah.nomor}`}>
-                    <div className="p-4 transition-all duration-300 bg-gray-100 rounded shadow-md cursor-pointer hover:bg-white shadow-purple-300 hover:scale-105">
+                    <div className="p-4 transition-all duration-300 bg-gray-100 rounded shadow-md cursor-pointer hover:bg-white shadow-purple-300 ">
                       <h3 className="text-lg font-semibold ">
                         <div className="flex justify-between">
                           <span>
