@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Divide as Hamburger } from 'hamburger-react'
+
 export default function NavbarMenu() {
   const [navbar, setNavbar] = useState(false)
   const [scroll, setScroll] = useState(false)
@@ -32,10 +33,10 @@ export default function NavbarMenu() {
   return (
     <div>
       <nav
-        className={`w-full bg-purple-900 shadow  text-gray-200${
+        className={`w-full shadow shadow-purple-800/60 rounded-b-xl text-gray-200 ${
           scroll
-            ? 'fixed top-0 z-50 transition-all duration-300'
-            : ''
+            ? 'apply fixed top-0 z-50 transition-all duration-300 bg-purple-900/70'
+            : 'bg-purple-900'
         }`}
         id="navbar">
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
