@@ -186,8 +186,8 @@ export default function Detail({ data }) {
                   <Link
                     className="px-2 py-1 font-semibold text-white border rounded bg-green-600/80"
                     href={`/surah/${surahSebelumnya.nomor}`}>
-                    {surahSanjutnya.namaLatin} -{' '}
-                    {surahSanjutnya.nama} ➡
+                    {surahSebelumnya.namaLatin} -{' '}
+                    {surahSebelumnya.nama} ➡
                   </Link>
                 ) : (
                   <span></span>
