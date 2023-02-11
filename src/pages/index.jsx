@@ -18,7 +18,6 @@ export default function Home() {
       )
       setSurah(response.data.data)
       setLoading(false)
-      console.log(response.data.data)
     } catch (e) {
       console.log(e.message)
     }
@@ -73,7 +72,7 @@ export default function Home() {
                     cy="12"
                     r="10"
                     stroke="currentColor"
-                    stroke-width="4"></circle>
+                    strokeWidth="4"></circle>
                   <path
                     className="opacity-75"
                     fill="currentColor"
@@ -106,8 +105,9 @@ export default function Home() {
                     return surah
                   }
                 })
-                .map((surah) => (
+                .map((surah, index) => (
                   <Link
+                    key={index}
                     href={`/surah/${surah.nomor}`}>
                     <div className="p-4 transition-all duration-300 bg-gray-100 rounded shadow-md cursor-pointer hover:bg-white shadow-purple-300 hover:scale-105">
                       <h3 className="text-lg font-semibold ">

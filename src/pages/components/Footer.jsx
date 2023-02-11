@@ -9,7 +9,9 @@ export default function Footer() {
             All Rights Reserved
             <br />
             ❤️ made by{' '}
-            <a href="https://budicuy.my.id/">
+            <a
+              href="https://budicuy.my.id/"
+              target="_blank">
               <u>budicuy.my.id</u>
             </a>
           </span>

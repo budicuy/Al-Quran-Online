@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Divide as Hamburger } from 'hamburger-react'
+import Link from 'next/link'
 
 export default function NavbarMenu() {
   const [navbar, setNavbar] = useState(false)
@@ -49,11 +50,11 @@ export default function NavbarMenu() {
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
-              <a href="/">
+              <Link href="/">
                 <h2 className="text-2xl font-bold md:text-3xl">
-                  📖 EQuran ID
+                  📖 EQuran Gabut
                 </h2>
-              </a>
+              </Link>
               <div className="md:hidden">
                 <Hamburger
                   toggled={navbar}
@@ -72,15 +73,15 @@ export default function NavbarMenu() {
               }`}>
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 {navItems.map((item, index) => (
-                  <a
+                  <Link
+                    key={index}
                     href={item.link}
+                    className="block"
                     target={item.target}>
-                    <li
-                      key={index}
-                      className="p-2 font-semibold text-gray-200 transition-all duration-300 rounded md:text-xl hover:text-purple-800 hover:bg-gray-200/50 ">
+                    <li className="p-2 font-semibold text-gray-200 transition-all duration-300 rounded md:text-xl hover:text-purple-800 hover:bg-gray-200/50 ">
                       {item.icon} {item.name}
                     </li>
-                  </a>
+                  </Link>
                 ))}
               </ul>
             </div>
