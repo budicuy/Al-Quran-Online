@@ -170,24 +170,22 @@ export default function Detail({ data }) {
                 )
               })}
               <div className="flex justify-between p-3 mt-5 text-sm bg-gray-100 border rounded-lg shadow-md md:justify-center md:gap-5 md:text-lg hover:bg-white">
-                {/* jika surah selanjutnya false maka jangan tampilkan */}
-                {surahSanjutnya ? (
-                  <Link
-                    className="px-2 py-1 font-semibold text-white border rounded bg-blue-600/80"
-                    href={`/surah/${surahSanjutnya.nomor}`}>
-                    ⬅ {surahSanjutnya.namaLatin} -{' '}
-                    {surahSanjutnya.nama}
-                  </Link>
-                ) : (
-                  <span></span>
-                )}
-                {/* jika surah sebelumnya false maka jangan tampilkan */}
                 {surahSebelumnya ? (
                   <Link
                     className="px-2 py-1 font-semibold text-white border rounded bg-green-600/80"
                     href={`/surah/${surahSebelumnya.nomor}`}>
-                    {surahSebelumnya.namaLatin} -{' '}
-                    {surahSebelumnya.nama} ➡
+                    ⬅ {surahSebelumnya.namaLatin}{' '}
+                    - {surahSebelumnya.nama}
+                  </Link>
+                ) : (
+                  <span></span>
+                )}
+                {surahSanjutnya ? (
+                  <Link
+                    className="px-2 py-1 font-semibold text-white border rounded bg-blue-600/80"
+                    href={`/surah/${surahSanjutnya.nomor}`}>
+                    {surahSanjutnya.namaLatin} -{' '}
+                    {surahSanjutnya.nama} ➡
                   </Link>
                 ) : (
                   <span></span>
