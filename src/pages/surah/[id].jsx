@@ -4,26 +4,35 @@ import axios from 'axios'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Button from '../components/Button'
+import Link from 'next/link'
 
-export default function ({ data }) {
+export default function Detail({ data }) {
   const [surah, setSurah] = useState([])
   const [ayat, setAyat] = useState([])
   const [audio, setAudio] = useState([])
   const [loading, setLoading] = useState(true)
+  const [surahSebelumnya, setSebelumnya] =
+    useState([])
+  const [surahSanjutnya, setlanjutnya] = useState(
+    []
+  )
 
   useEffect(() => {
-    setTimeout(() => {
-      setSurah(data)
-      setAyat(data.ayat)
-      setAudio(data.audioFull)
-      setLoading(false)
-    }, 300)
+    setSurah(data)
+    setAyat(data.ayat)
+    setAudio(data.audioFull)
+    setSebelumnya(data.suratSebelumnya)
+    setlanjutnya(data.suratSelanjutnya)
 
-    // setTimeout(() => {
-    //   document.querySelector('#audioPlayer').src =
-    //     Object.values(data.audioFull)[0]
-    // }, 1000)
-  }, [])
+    setLoading(false)
+
+    setTimeout(() => {
+      document.querySelector('#audioPlayer').src =
+        Object.values(data.audioFull)[0]
+    }, 1000)
+  }, [data])
+
+  console.log(data)
 
   const pengisiSuara = [
     'Abdullah Al Juhayni',
@@ -53,7 +62,7 @@ export default function ({ data }) {
                 cy="12"
                 r="10"
                 stroke="currentColor"
-                stroke-width="4"></circle>
+                strokeWidth="4"></circle>
               <path
                 className="opacity-75"
                 fill="currentColor"
@@ -75,6 +84,26 @@ export default function ({ data }) {
                       {surah.jumlahAyat} Ayat
                     </p>
                   </span>
+                  <div>
+                    {/* jika surah selanjutnya false maka jangan tampilkan */}
+                    {surahSanjutnya ? (
+                      <Link
+                        href={`/surah/${surahSanjutnya.nomor}`}>
+                        Selanjutnya
+                      </Link>
+                    ) : (
+                      <span></span>
+                    )}
+                    {/* jika surah sebelumnya false maka jangan tampilkan */}
+                    {surahSebelumnya ? (
+                      <Link
+                        href={`/surah/${surahSebelumnya.nomor}`}>
+                        Sebelumnya
+                      </Link>
+                    ) : (
+                      <span></span>
+                    )}
+                  </div>
                 </div>
                 <hr className="mt-3 border-b-2" />
                 <div className="flex flex-wrap justify-center gap-5 mt-4 md:justify-between">
@@ -106,6 +135,7 @@ export default function ({ data }) {
                       (key, index) => {
                         return (
                           <option
+                            key={index}
                             className="text-xs bg-gray-100 hover:bg-purple-900 md:text-lg"
                             value={audio[key]}
                             id={`optionAudio${index}`}>
@@ -164,18 +194,36 @@ export default function ({ data }) {
   )
 }
 
-export async function getServerSideProps(
-  context
-) {
+export async function getStaticProps(context) {
   const { id } = context.params
+
   const res = await axios.get(
     `https://equran.id/api/v2/surat/${id}`
   )
   const data = await res.data.data
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
 
   return {
     props: {
       data,
     },
   }
+}
+
+export async function getStaticPaths() {
+  const res = await axios.get(
+    'https://equran.id/api/v2/surat'
+  )
+  const data = await res.data.data
+
+  const paths = data.map((surah) => ({
+    params: { id: surah.nomor.toString() },
+  }))
+
+  return { paths, fallback: false }
 }
