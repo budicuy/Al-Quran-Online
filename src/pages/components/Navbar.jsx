@@ -72,15 +72,15 @@ export default function NavbarMenu() {
               }`}>
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 {navItems.map((item, index) => (
-                  <li
-                    key={index}
-                    className="p-2 font-semibold text-gray-200 transition-all duration-300 rounded md:text-xl hover:text-purple-800 hover:bg-gray-200/50 ">
-                    <a
-                      href={item.link}
-                      target={item.target}>
+                  <a
+                    href={item.link}
+                    target={item.target}>
+                    <li
+                      key={index}
+                      className="p-2 font-semibold text-gray-200 transition-all duration-300 rounded md:text-xl hover:text-purple-800 hover:bg-gray-200/50 ">
                       {item.icon} {item.name}
-                    </a>
-                  </li>
+                    </li>
+                  </a>
                 ))}
               </ul>
             </div>

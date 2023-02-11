@@ -64,13 +64,13 @@ export default function ({ data }) {
           <div className="container px-5 mt-5 mb-5 md:px-12">
             <div className="grid">
               <div className="p-4 bg-gray-100 border rounded-lg shadow-md md:p-8">
-                <div className="flex flex-wrap justify-center text-center md:justify-between">
-                  <span className="text-lg font-semibold text-purple-600 md:text-left md:text-xl ">
+                <div className="text-center md:text-left">
+                  <span className="text-lg font-semibold text-purple-600 md:text-left md:text-xl">
                     {surah.namaLatin} -{' '}
                     {surah.arti}
                   </span>
                   <span>
-                    <p className="mt-2 text-lg font-semibold text-purple-500 md:text-right md:text-xl">
+                    <p className="mt-2 text-lg font-semibold text-purple-500 md:text-xl">
                       {surah.tempatTurun} -{' '}
                       {surah.jumlahAyat} Ayat
                     </p>
