@@ -48,7 +48,7 @@ export default function Detail({ data }) {
         <title>Surah {surah.namaLatin}</title>
       </Head>
       <Navbar />
-      <div className="grid items-center justify-center min-h-screen">
+      <div className="grid items-center min-h-screen">
         {loading ? (
           <div className="flex justify-center w-full mt-5 md:mt-10">
             <svg
@@ -155,7 +155,7 @@ export default function Detail({ data }) {
               {ayat.map((ayat, index) => {
                 return (
                   <div
-                    className="py-5 mt-5 bg-gray-100 border rounded-lg shadow-md hover:bg-white"
+                    className="w-full py-5 mt-5 bg-gray-100 border rounded-lg shadow-md hover:bg-white"
                     key={index}>
                     <div className="flex justify-between px-5">
                       <div className="text-lg font-semibold text-purple-600 md:text-xl ">
