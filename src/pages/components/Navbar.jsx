@@ -7,7 +7,7 @@ export default function NavbarMenu() {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 300) {
         setScroll(true)
       } else {
         setScroll(false)
@@ -19,15 +19,22 @@ export default function NavbarMenu() {
     { name: 'Home', link: '/', icon: '🏠' },
     {
       name: 'Tafsir',
-      link: '/tafsir',
+      link: '/',
+      target: '',
       icon: '📜',
     },
     {
       name: 'About',
-      link: '/about',
+      link: '/',
+      target: '',
       icon: '👨‍💻',
     },
-    { name: 'Blog', link: '/blog', icon: '📒' },
+    {
+      name: 'Github',
+      link: 'https://github.com/budicuy',
+      target: 'blank',
+      icon: '📂',
+    },
   ]
 
   return (
@@ -68,7 +75,9 @@ export default function NavbarMenu() {
                   <li
                     key={index}
                     className="p-2 font-semibold text-gray-200 transition-all duration-300 rounded md:text-xl hover:text-purple-800 hover:bg-gray-200/50 ">
-                    <a href={item.link}>
+                    <a
+                      href={item.link}
+                      target={item.target}>
                       {item.icon} {item.name}
                     </a>
                   </li>

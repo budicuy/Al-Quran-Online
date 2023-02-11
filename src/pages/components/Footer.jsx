@@ -6,10 +6,9 @@ export default function Footer() {
           <span>
             Copyright &copy;{' '}
             {new Date().getFullYear()} Al-Qur'an -
-            All Rights Reserved | Powered by{' '}
-            <u>Tailwindcss</u> & <u>Nextjs</u>
+            All Rights Reserved
             <br />
-            made with ❤️ by <u>budicuy.my.id</u>
+            ❤️ made by <u>budicuy.my.id</u>
           </span>
         </div>
       </footer>
