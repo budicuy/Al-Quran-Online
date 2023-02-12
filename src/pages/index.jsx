@@ -9,11 +9,15 @@ import LoadingComponent from '@/components/LoadingComponent'
 export default function Home(props) {
     const [surah, setSurah] = useState([])
     const [search, setSearch] = useState([])
-    const [loading, setLoading] = useState(false)
-
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setSurah(props.data.data)
+
+        if (surah) {
+            setLoading(false)
+        }
+
         document.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.key === '/') {
                 document.getElementById('search').focus()
@@ -23,7 +27,7 @@ export default function Home(props) {
                 document.getElementById('search').blur()
             }
         })
-    }, [props.data])
+    }, [props.data, surah])
 
     return (
         <div>
@@ -37,24 +41,35 @@ export default function Home(props) {
                     id="search"
                     className="w-full py-3 mt-5 text-center text-purple-500 bg-gray-100 border rounded-lg shadow-md shadow-purple-300 focus:text-purple-500 focus:text-center placeholder:text-center focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-600"
                     placeholder="🔎 Cari Surah ... (CTRL + /)"
-                    onChange={(e) =>
-                        setSearch(e.target.value)
-                    }
+                    onChange={(e) => setSearch(e.target.value)}
                 />
                 <div className="w-full mt-5">
                     <div className="grid gap-3 text-purple-500 md:grid-cols-3">
                         {loading ? (
                             <LoadingComponent />
-                        ) : (surah.filter((surah) => {
-                            if (search == '') { return surah } if (surah.namaLatin
-                                .toLowerCase()
-                                .replace(/[^a-zA-Z ]/g, '')
-                                .includes(search.toLowerCase()
-                                    .replace(/[^a-zA-Z ]/g, ''))
-                            ) { return surah }
-                        }).map((surah, index) => (
-                            <CardHome key={index} surah={surah} />
-                        )))}
+                        ) : (
+                            surah
+                                .filter((surah) => {
+                                    if (search == '') {
+                                        return surah
+                                    }
+                                    if (
+                                        surah.namaLatin
+                                            .toLowerCase()
+                                            .replace(/[^a-zA-Z ]/g, '')
+                                            .includes(
+                                                search
+                                                    .toLowerCase()
+                                                    .replace(/[^a-zA-Z ]/g, '')
+                                            )
+                                    ) {
+                                        return surah
+                                    }
+                                })
+                                .map((surah, index) => (
+                                    <CardHome key={index} surah={surah} />
+                                ))
+                        )}
                     </div>
                 </div>
             </div>
@@ -64,9 +79,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-    const res = await axios.get(
-        'https://equran.id/api/v2/surat/'
-    )
+    const res = await axios.get('https://equran.id/api/v2/surat/')
     const data = await res.data
 
     return {
