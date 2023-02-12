@@ -16,6 +16,8 @@ export default function NotFoundPage() {
                 window.location.href = '/'
             }
         }, 1000)
+
+
     }, [])
 
     return (
@@ -26,8 +28,7 @@ export default function NotFoundPage() {
 
             <img
                 className="object-cover w-full h-full opacity-50"
-                src="/img/404.jpg"
-                alt="Page Not Found | 404"
+                src="/img/404.jpg" alt="Page Not Found | 404"
             />
             <div className="absolute z-50 block w-full px-5 text-center text-gray-200 translate-x-1/2 -translate-y-1/2 right-1/2 top-1/2">
                 <h1 className="text-4xl font-bold md:text-5xl lg:text-7xl">

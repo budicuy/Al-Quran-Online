@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Divide as Hamburger } from 'hamburger-react'
+import { Pivot as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
 
 export default function NavbarMenu() {
@@ -42,8 +42,8 @@ export default function NavbarMenu() {
         <div>
             <nav
                 className={`w-full shadow shadow-purple-800/60 rounded-b-xl text-gray-200 ${scroll
-                        ? 'apply fixed top-0 z-50 transition-all duration-300 bg-purple-900/70'
-                        : 'bg-purple-900'
+                    ? 'apply fixed top-0 z-50 transition-all duration-300 bg-purple-900/70'
+                    : 'bg-purple-900'
                     }`}
                 id="navbar">
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
@@ -59,6 +59,11 @@ export default function NavbarMenu() {
                                     toggled={navbar}
                                     toggle={setNavbar}
                                     rounded
+                                    label="Show menu"
+                                    size={25}
+                                    duration={0.5}
+                                    hideOutline={true}
+                                    color="skyblue"
                                 />
                             </div>
                         </div>
@@ -66,8 +71,8 @@ export default function NavbarMenu() {
                     <div>
                         <div
                             className={`flex-1 justify-self-center transition-all duration-300  md:block md:pb-0 md:mt-0 ${navbar
-                                    ? '-translate-x-0 block md:relative'
-                                    : '-translate-x-full md:translate-x-0 absolute left-0 md:relative'
+                                ? '-translate-x-0 block md:relative'
+                                : '-translate-x-full md:translate-x-0 absolute left-0 md:relative'
                                 }`}>
                             <ul className="items-center justify-center py-2 space-y-1 md:flex md:space-y-0">
                                 {navItems.map((item, index) => (

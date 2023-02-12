@@ -1,79 +1,65 @@
-import Link from 'next/link'
-import { useEffect } from 'react'
-import Button from '@/components/Button'
+import React from 'react'
 
-export default function CardDetail(props) {
-    const surah = props.data
+export default function CardTafsir(props) {
+    const { surah } = props.data
 
-    useEffect(() => {
-        document.querySelector('#audioPlayer').src =
-            Object.values(surah.audioFull)[0] || ''
-    }, [surah])
-
-    const pengisiSuara = [
-        'Abdullah Al Juhayni',
-        'Abdul Muhsin Al Qasim',
-        'Abdurrahman As Sudais',
-        'Ibrahim Al Dossari',
-        'Mishary Al Afasi',
-    ]
-
+    console.log(surah)
     return (
         <div className="container px-5 mt-5 mb-5 md:px-12">
             <div className="grid">
                 <div className="p-4 bg-gray-100 border rounded-lg shadow-md md:p-8">
                     <div className="text-center md:text-left">
                         <span className="text-lg font-semibold text-purple-600 md:text-left md:text-xl">
-                            {surah.namaLatin} - {surah.arti}
+                            Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Dolore quas earum facere alias sapiente
+                            repudiandae harum blanditiis sit esse, minus tenetur
+                            ipsam quasi sed ab vitae, cumque enim doloribus
+                            recusandae.
                         </span>
                         <span>
                             <p className="mt-2 text-lg font-semibold text-purple-500 md:text-xl">
-                                {surah.tempatTurun} -{' '}
-                                {surah.jumlahAyat} Ayat
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Dicta accusamus soluta
+                                voluptatem nihil aut excepturi earum sunt
+                                molestiae! Eos illum porro laborum iusto a nemo
+                                asperiores suscipit deleniti dolore unde?
                             </p>
                         </span>
                     </div>
                     <hr className="mt-3 border-b-2" />
-                    <div className="flex flex-wrap justify-center gap-5 mt-4 md:justify-between">
+                    {/* <div className="flex flex-wrap justify-center gap-5 mt-4 md:justify-between">
                         <select
                             className="w-full p-2 overflow-hidden text-xs font-semibold text-purple-700 bg-white border-2 border-purple-300 rounded-lg md:w-1/2 md:max-w-none md:text-lg focus:right-2 ring-purple-700"
                             onChange={(e) => {
                                 const audio =
-                                    document.querySelector(
-                                        '#audioPlayer'
-                                    )
+                                    document.querySelector('#audioPlayer')
                                 audio.src = e.target.value
-                                const pause =
-                                    document.querySelector('#pause')
-                                const play =
-                                    document.querySelector('#play')
+                                const pause = document.querySelector('#pause')
+                                const play = document.querySelector('#play')
                                 // add class hidden
                                 pause.classList.add('hidden')
                                 play.classList.remove('hidden')
                             }}>
-                            {Object.keys(surah.audioFull).map(
-                                (key, index) => {
-                                    return (
-                                        <option
-                                            key={index}
-                                            className="text-xs bg-gray-100 hover:bg-purple-900 md:text-lg"
-                                            value={surah.audioFull[key]}
-                                            id={`optionAudio${index}`}>
-                                            {pengisiSuara[index]}
-                                        </option>
-                                    )
-                                }
-                            )}
+                            {Object.keys(surah.audioFull).map((key, index) => {
+                                return (
+                                    <option
+                                        key={index}
+                                        className="text-xs bg-gray-100 hover:bg-purple-900 md:text-lg"
+                                        value={surah.audioFull[key]}
+                                        id={`optionAudio${index}`}>
+                                        {pengisiSuara[index]}
+                                    </option>
+                                )
+                            })}
                         </select>
                         <audio
                             controls
                             id="audioPlayer"
-                            className="hidden">
-                        </audio>
+                            className="hidden"></audio>
                         <Button />
-                    </div>
+                    </div> */}
                 </div>
-                {surah.ayat.map((ayat, index) => {
+                {/* {surah.ayat.map((ayat, index) => {
                     return (
                         <div
                             className="w-full py-5 mt-5 bg-gray-100 border rounded-lg shadow-md hover:bg-white"
@@ -81,8 +67,7 @@ export default function CardDetail(props) {
                             <div className="flex justify-between px-5">
                                 <div className="text-lg font-semibold text-purple-600 md:text-xl ">
                                     <span>
-                                        {surah.nomor} :{' '}
-                                        {ayat.nomorAyat}
+                                        {surah.nomor} : {ayat.nomorAyat}
                                     </span>
                                 </div>
                                 <span>
@@ -105,14 +90,14 @@ export default function CardDetail(props) {
                             </div>
                         </div>
                     )
-                })}
+                })} */}
                 <div className="flex justify-between p-3 mt-5 text-sm bg-gray-100 border rounded-lg shadow-md md:justify-center md:gap-5 md:text-lg hover:bg-white">
-                    {surah.suratSebelumnya ? (
+                    {/* {surah.suratSebelumnya ? (
                         <Link
                             className="px-2 py-1 font-semibold text-white border rounded bg-green-600/80"
                             href={`/surah/${surah.suratSebelumnya.nomor}`}>
-                            ⬅ {surah.suratSebelumnya.namaLatin}{' '}
-                            - {surah.suratSebelumnya.nomor} :{' '}
+                            ⬅ {surah.suratSebelumnya.namaLatin} -{' '}
+                            {surah.suratSebelumnya.nomor} :{' '}
                             {surah.suratSebelumnya.jumlahAyat}
                         </Link>
                     ) : (
@@ -124,12 +109,11 @@ export default function CardDetail(props) {
                             href={`/surah/${surah.suratSelanjutnya.nomor}`}>
                             {surah.suratSelanjutnya.namaLatin} -{' '}
                             {surah.suratSelanjutnya.nomor} :{' '}
-                            {surah.suratSelanjutnya.jumlahAyat}{' '}
-                            ➡
+                            {surah.suratSelanjutnya.jumlahAyat} ➡
                         </Link>
                     ) : (
                         <span></span>
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>

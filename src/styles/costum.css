@@ -1,7 +1,7 @@
 @import url('font.css');
 
 #nprogress .bar {
-  background: rgb(104, 106, 255);
+  background: skyblue;
   position: fixed;
   z-index: 1031;
   top: 0;
