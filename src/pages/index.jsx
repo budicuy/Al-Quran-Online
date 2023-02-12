@@ -46,7 +46,9 @@ export default function Home(props) {
                 <div className="w-full mt-5">
                     <div className="grid gap-3 text-purple-500 md:grid-cols-3">
                         {loading ? (
-                            <LoadingComponent />
+                            <div className="md:col-span-3">
+                                <LoadingComponent />
+                            </div>
                         ) : (
                             surah
                                 .filter((surah) => {
