@@ -41,17 +41,18 @@ export default function NavbarMenu() {
     return (
         <div>
             <nav
-                className={`w-full shadow shadow-purple-800/60 rounded-b-xl text-gray-200 ${scroll
-                    ? 'apply fixed top-0 z-50 transition-all duration-300 bg-purple-900/70'
-                    : 'bg-purple-900'
-                    }`}
+                className={`w-full shadow shadow-purple-800/60 rounded-b-xl text-gray-200 ${
+                    scroll
+                        ? 'apply fixed top-0 z-50 transition-all duration-300 bg-purple-900/70'
+                        : 'bg-purple-900'
+                }`}
                 id="navbar">
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-1 md:py-5 md:block">
                             <Link href="/">
                                 <h2 className="text-xl font-bold md:text-3xl">
-                                    📖 EQuran
+                                    📖 MyQuran
                                 </h2>
                             </Link>
                             <div className="md:hidden">
@@ -70,10 +71,11 @@ export default function NavbarMenu() {
                     </div>
                     <div>
                         <div
-                            className={`flex-1 justify-self-center transition-all duration-300  md:block md:pb-0 md:mt-0 ${navbar
-                                ? '-translate-x-0 block md:relative'
-                                : '-translate-x-full md:translate-x-0 absolute left-0 md:relative'
-                                }`}>
+                            className={`flex-1 justify-self-center transition-all duration-300  md:block md:pb-0 md:mt-0 ${
+                                navbar
+                                    ? '-translate-x-0 block md:relative'
+                                    : '-translate-x-full md:translate-x-0 absolute left-0 md:relative'
+                            }`}>
                             <ul className="items-center justify-center py-2 space-y-1 md:flex md:space-y-0">
                                 {navItems.map((item, index) => (
                                     <Link
