@@ -1,5 +1,6 @@
 import Button from './Button'
 import ButtonNextAndprev from './ButtonNextAndprev'
+import { useEffect } from 'react'
 
 export default function CardTafsir({ tafsir }) {
     const namaSurah = tafsir.namaLatin
@@ -15,7 +16,7 @@ export default function CardTafsir({ tafsir }) {
 
     useEffect(() => {
         document.querySelector('#audioPlayer').src =
-            Object.values(surah.audioFull)[0] || ''
+            Object.values(tafsir.audioFull)[0] || ''
     }, [tafsir])
 
     return (
