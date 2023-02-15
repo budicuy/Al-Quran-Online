@@ -1,10 +1,10 @@
 import axios from 'axios'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import CardDetail from '@/components/CardDetail'
 import Footer from '@/components/Footer'
 import LoadingComponent from '@/components/LoadingComponent'
 import Navbar from '@/components/Navbar'
+import CardSurah from '@/components/CardSurah'
 
 export default function Detail({ data }) {
     const [loading, setLoading] = useState(true)
@@ -19,7 +19,7 @@ export default function Detail({ data }) {
                 <title>Surah {data.namaLatin}</title>
             </Head>
             <Navbar />
-            {loading ? <LoadingComponent /> : <CardDetail data={data} />}
+            {loading ? <LoadingComponent /> : <CardSurah data={data} />}
             <Footer />
         </div>
     )

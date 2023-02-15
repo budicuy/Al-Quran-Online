@@ -6,7 +6,7 @@
 
 @layer base {
     body {
-        @apply bg-purple-500 bg-repeat bg-[url('/img/bg.webp')] [background-size:40px] md:[background-size:100px];
+        @apply bg-white bg-repeat bg-[url('/img/bg.webp')] [background-size:40px] md:[background-size:100px];
     }
 
     html {

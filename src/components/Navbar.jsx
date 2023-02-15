@@ -19,12 +19,6 @@ export default function NavbarMenu() {
     const navItems = [
         { name: 'Home', link: '/', icon: '🏠' },
         {
-            name: 'Tafsir',
-            link: '/',
-            target: '',
-            icon: '📜',
-        },
-        {
             name: 'About',
             link: '/',
             target: '',
