@@ -22,7 +22,7 @@ export default function CardTafsir({ tafsir }) {
     return (
         <div className="container px-5 mt-5 mb-5 md:px-12">
             <div className="grid">
-                <div className="p-4 bg-white border rounded-lg shadow-md md:p-8">
+                <div className="p-4 bg-white border rounded shadow-md md:p-8">
                     <div className="text-center">
                         <div className="text-lg font-semibold text-purple-600 md:text-xl">
                             {tafsir.namaLatin} • {tafsir.arti} <br />

@@ -39,12 +39,12 @@ export default function Home(props) {
                 <input
                     type="text"
                     id="search"
-                    className="w-full py-3 mt-5 text-center text-purple-500 bg-gray-100 border rounded-lg shadow-md shadow-purple-300 focus:text-purple-500 focus:text-center placeholder:text-center focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-600"
+                    className="w-full py-3 mt-5 text-center bg-gray-100 border rounded shadow-md focus:text-purple-500 focus:text-center placeholder:text-center focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-600"
                     placeholder="🔎 Cari Surah ... (CTRL + /)"
                     onChange={(e) => setSearch(e.target.value)}
                 />
                 <div className="w-full mt-5">
-                    <div className="grid gap-3 text-purple-500 md:grid-cols-3">
+                    <div className="grid text-purple-500 gap-3a md:grid-cols-3">
                         {loading ? (
                             <div className="md:col-span-3">
                                 <LoadingComponent />

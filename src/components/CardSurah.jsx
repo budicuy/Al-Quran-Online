@@ -21,7 +21,7 @@ export default function CardSurah(props) {
     return (
         <div className="container px-5 mt-5 mb-5 md:px-12">
             <div className="grid">
-                <div className="p-4 bg-gray-100 border rounded-lg shadow-md md:p-8">
+                <div className="p-4 bg-gray-100 border rounded shadow-md md:p-8">
                     <div className="text-center md:text-left">
                         <span className="text-lg font-semibold text-purple-600 md:text-left md:text-xl">
                             {surah.namaLatin} - {surah.arti}
