@@ -8,8 +8,10 @@ import axios from 'axios'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
-export default function Tafsir({ data }) {
+export default function Tafsir(props) {
     const [loading, setLoading] = useState(true)
+
+    const data = props.data.data
 
     useEffect(() => {
         if (data) {
@@ -31,32 +33,14 @@ export default function Tafsir({ data }) {
     )
 }
 
-export async function getStaticProps(context) {
-    const { id } = context.params
-
+export async function getServerSideProps(context) {
+    const { id } = context.query
     const res = await axios.get(`https://equran.id/api/v2/tafsir/${id}`)
-    const data = await res.data.data
-
-    if (!data) {
-        return {
-            notFound: true,
-        }
-    }
+    const data = await res.data
 
     return {
         props: {
             data,
         },
     }
-}
-
-export async function getStaticPaths() {
-    const res = await axios.get('https://equran.id/api/v2/surat/')
-    const data = await res.data.data
-
-    const paths = data.map((surah) => ({
-        params: { id: surah.nomor.toString() },
-    }))
-
-    return { paths, fallback: false }
 }

@@ -7,10 +7,12 @@ import Favicon from '@/meta/Favicon'
 import SeoMeta from '@/meta/SeoMeta'
 import axios from 'axios'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-export default function Detail({ data }) {
+export default function Detail(props) {
     const [loading, setLoading] = useState(true)
+    const data = props.data
 
     useEffect(() => {
         setLoading(false)
@@ -25,37 +27,17 @@ export default function Detail({ data }) {
             </Head>
             <Navbar />
             {loading ? <LoadingComponent /> : <CardSurah data={data} />}
-            <NavMenuBottom />
         </div>
     )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     const { id } = context.params
-
     const res = await axios.get(`https://equran.id/api/v2/surat/${id}`)
-    const data = await res.data.data
-
-    if (!data) {
-        return {
-            notFound: true,
-        }
-    }
-
+    const data = await res.data
     return {
         props: {
             data,
         },
     }
-}
-
-export async function getStaticPaths() {
-    const res = await axios.get('https://equran.id/api/v2/surat/')
-    const data = await res.data.data
-
-    const paths = data.map((surah) => ({
-        params: { id: surah.nomor.toString() },
-    }))
-
-    return { paths, fallback: false }
 }

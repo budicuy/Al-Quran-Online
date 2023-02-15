@@ -4,7 +4,7 @@ import ButtonNextAndprev from './ButtonNextAndprev'
 import NavMenuBottom from './NavMenuBottom'
 
 export default function CardSurah(props) {
-    const surah = props.data
+    const surah = props.data.data
 
     useEffect(() => {
         document.querySelector('#audioPlayer').src =
