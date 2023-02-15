@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
 import Button from '@/components/Button'
+import ButtonNextAndprev from './ButtonNextAndprev'
 
 export default function CardDetail(props) {
     const surah = props.data
@@ -28,8 +29,7 @@ export default function CardDetail(props) {
                         </span>
                         <span>
                             <p className="mt-2 text-lg font-semibold text-purple-500 md:text-xl">
-                                {surah.tempatTurun} -{' '}
-                                {surah.jumlahAyat} Ayat
+                                {surah.tempatTurun} - {surah.jumlahAyat} Ayat
                             </p>
                         </span>
                     </div>
@@ -39,38 +39,35 @@ export default function CardDetail(props) {
                             className="w-full p-2 overflow-hidden text-xs font-semibold text-purple-700 bg-white border-2 border-purple-300 rounded-lg md:w-1/2 md:max-w-none md:text-lg focus:right-2 ring-purple-700"
                             onChange={(e) => {
                                 const audio =
-                                    document.querySelector(
-                                        '#audioPlayer'
-                                    )
+                                    document.querySelector('#audioPlayer')
                                 audio.src = e.target.value
-                                const pause =
-                                    document.querySelector('#pause')
-                                const play =
-                                    document.querySelector('#play')
+                                const pause = document.querySelector('#pause')
+                                const play = document.querySelector('#play')
                                 // add class hidden
                                 pause.classList.add('hidden')
                                 play.classList.remove('hidden')
                             }}>
-                            {Object.keys(surah.audioFull).map(
-                                (key, index) => {
-                                    return (
-                                        <option
-                                            key={index}
-                                            className="text-xs bg-gray-100 hover:bg-purple-900 md:text-lg"
-                                            value={surah.audioFull[key]}
-                                            id={`optionAudio${index}`}>
-                                            {pengisiSuara[index]}
-                                        </option>
-                                    )
-                                }
-                            )}
+                            {Object.keys(surah.audioFull).map((key, index) => {
+                                return (
+                                    <option
+                                        key={index}
+                                        className="text-xs bg-gray-100 hover:bg-purple-900 md:text-lg"
+                                        value={surah.audioFull[key]}
+                                        id={`optionAudio${index}`}>
+                                        {pengisiSuara[index]}
+                                    </option>
+                                )
+                            })}
                         </select>
                         <audio
                             controls
                             id="audioPlayer"
-                            className="hidden">
-                        </audio>
-                        <Button />
+                            className="hidden"></audio>
+                        <Button
+                            data={surah}
+                            buttonName="Tafsir"
+                            page="tafsir"
+                        />
                     </div>
                 </div>
                 {surah.ayat.map((ayat, index) => {
@@ -81,8 +78,7 @@ export default function CardDetail(props) {
                             <div className="flex justify-between px-5">
                                 <div className="text-lg font-semibold text-purple-600 md:text-xl ">
                                     <span>
-                                        {surah.nomor} :{' '}
-                                        {ayat.nomorAyat}
+                                        {surah.nomor} : {ayat.nomorAyat}
                                     </span>
                                 </div>
                                 <span>
@@ -106,31 +102,7 @@ export default function CardDetail(props) {
                         </div>
                     )
                 })}
-                <div className="flex justify-between p-3 mt-5 text-sm bg-gray-100 border rounded-lg shadow-md md:justify-center md:gap-5 md:text-lg hover:bg-white">
-                    {surah.suratSebelumnya ? (
-                        <Link
-                            className="px-2 py-1 font-semibold text-white border rounded bg-green-600/80"
-                            href={`/surah/${surah.suratSebelumnya.nomor}`}>
-                            ⬅ {surah.suratSebelumnya.namaLatin}{' '}
-                            - {surah.suratSebelumnya.nomor} :{' '}
-                            {surah.suratSebelumnya.jumlahAyat}
-                        </Link>
-                    ) : (
-                        <span></span>
-                    )}
-                    {surah.suratSelanjutnya ? (
-                        <Link
-                            className="px-2 py-1 font-semibold text-white border rounded bg-blue-600/80"
-                            href={`/surah/${surah.suratSelanjutnya.nomor}`}>
-                            {surah.suratSelanjutnya.namaLatin} -{' '}
-                            {surah.suratSelanjutnya.nomor} :{' '}
-                            {surah.suratSelanjutnya.jumlahAyat}{' '}
-                            ➡
-                        </Link>
-                    ) : (
-                        <span></span>
-                    )}
-                </div>
+                <ButtonNextAndprev data={surah} page="surah" />
             </div>
         </div>
     )

@@ -21,7 +21,7 @@ export default function Tafsir({ data }) {
                 <title>Surah {data.namaLatin}</title>
             </Head>
             <NavbarMenu />
-            {loading ? <LoadingComponent /> : <CardTafsir data={data} />}
+            {loading ? <LoadingComponent /> : <CardTafsir tafsir={data} />}
             <Footer />
         </div>
     )
