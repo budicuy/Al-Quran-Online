@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function LoadingComponent() {
     return (
         <div className="flex items-center justify-center w-full min-h-[70vh] mt-5 md:mt-10">

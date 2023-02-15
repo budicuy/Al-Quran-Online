@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
 import { Pivot as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export default function NavbarMenu() {
     const [navbar, setNavbar] = useState(false)

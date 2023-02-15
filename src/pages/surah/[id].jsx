@@ -1,10 +1,12 @@
-import axios from 'axios'
-import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import CardSurah from '@/components/CardSurah'
 import Footer from '@/components/Footer'
 import LoadingComponent from '@/components/LoadingComponent'
 import Navbar from '@/components/Navbar'
-import CardSurah from '@/components/CardSurah'
+import Favicon from '@/meta/Favicon'
+import SeoMeta from '@/meta/SeoMeta'
+import axios from 'axios'
+import Head from 'next/head'
+import { useEffect, useState } from 'react'
 
 export default function Detail({ data }) {
     const [loading, setLoading] = useState(true)
@@ -16,7 +18,9 @@ export default function Detail({ data }) {
     return (
         <div>
             <Head>
-                <title>Surah {data.namaLatin}</title>
+                <title>MyQuran | {data.namaLatin}</title>
+                <SeoMeta />
+                <Favicon />
             </Head>
             <Navbar />
             {loading ? <LoadingComponent /> : <CardSurah data={data} />}

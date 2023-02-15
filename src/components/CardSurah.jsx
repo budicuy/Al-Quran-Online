@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import Button from '@/components/Button'
+import { useEffect } from 'react'
 import ButtonNextAndprev from './ButtonNextAndprev'
 
 export default function CardSurah(props) {

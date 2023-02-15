@@ -2,9 +2,10 @@ import CardTafsir from '@/components/CardTafsir'
 import Footer from '@/components/Footer'
 import LoadingComponent from '@/components/LoadingComponent'
 import NavbarMenu from '@/components/Navbar'
+import SeoMeta from '@/meta/SeoMeta'
 import axios from 'axios'
 import Head from 'next/head'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Tafsir({ data }) {
     const [loading, setLoading] = useState(true)
@@ -18,7 +19,9 @@ export default function Tafsir({ data }) {
     return (
         <div>
             <Head>
-                <title>Surah {data.namaLatin}</title>
+                <title>MyQuran | {data.namaLatin}</title>
+                <SeoMeta />
+                <Favicon />
             </Head>
             <NavbarMenu />
             {loading ? <LoadingComponent /> : <CardTafsir tafsir={data} />}

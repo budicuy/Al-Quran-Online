@@ -1,6 +1,6 @@
+import { useEffect } from 'react'
 import Button from './Button'
 import ButtonNextAndprev from './ButtonNextAndprev'
-import { useEffect } from 'react'
 
 export default function CardTafsir({ tafsir }) {
     const namaSurah = tafsir.namaLatin

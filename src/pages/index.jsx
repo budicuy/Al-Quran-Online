@@ -1,10 +1,10 @@
+import CardHome from '@/components/CardHome'
+import Footer from '@/components/Footer'
+import LoadingComponent from '@/components/LoadingComponent'
+import Navbar from '@/components/Navbar'
+import IndexMeta from '@/meta/IndexMeta'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import Head from 'next/head'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import CardHome from '@/components/CardHome'
-import LoadingComponent from '@/components/LoadingComponent'
 
 export default function Home(props) {
     const [surah, setSurah] = useState([])
@@ -31,9 +31,7 @@ export default function Home(props) {
 
     return (
         <div>
-            <Head>
-                <title>AlQuran</title>
-            </Head>
+            <IndexMeta />
             <Navbar />
             <div className="container relative min-h-screen px-5 mb-5 md:px-14">
                 <input
