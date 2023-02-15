@@ -44,7 +44,7 @@ export default function Home(props) {
                     onChange={(e) => setSearch(e.target.value)}
                 />
                 <div className="w-full mt-5">
-                    <div className="grid text-purple-500 gap-3a md:grid-cols-3">
+                    <div className="grid gap-3 text-purple-500 md:grid-cols-3">
                         {loading ? (
                             <div className="md:col-span-3">
                                 <LoadingComponent />
