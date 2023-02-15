@@ -1,9 +1,8 @@
-import Link from 'next/link'
 import { useEffect } from 'react'
 import Button from '@/components/Button'
 import ButtonNextAndprev from './ButtonNextAndprev'
 
-export default function CardDetail(props) {
+export default function CardSurah(props) {
     const surah = props.data
 
     useEffect(() => {
