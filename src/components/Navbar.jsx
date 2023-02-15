@@ -1,4 +1,5 @@
 import { Pivot as Hamburger } from 'hamburger-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -48,11 +49,13 @@ export default function NavbarMenu() {
                     <div>
                         <div className="flex items-center justify-between py-1 md:py-5 md:block">
                             <Link href="/">
-                                <div className="flex justify-center space-x-4 text-xl font-bold md:text-3xl">
-                                    <img
+                                <div className="flex items-center justify-center space-x-4 text-xl font-bold md:text-3xl">
+                                    <Image
                                         src="/logo.webp"
-                                        className="h-8 md:h-10 filter"
+                                        className="w-8 md:h-8 filter"
                                         alt=""
+                                        width={200}
+                                        height={200}
                                     />{' '}
                                     <span>MyQuran</span>
                                 </div>

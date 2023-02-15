@@ -7,7 +7,7 @@ export default function ButtonNextAndprev({ data, page }) {
             <div className="container flex items-center justify-between text-sm rounded-lg shadow-md md:text-lg">
                 {data.suratSebelumnya ? (
                     <Link
-                        className="block px-2 py-1 font-semibold text-white "
+                        className="flex items-center px-2 py-1 space-x-3 font-semibold text-white "
                         href={`/${page}/${data.suratSebelumnya.nomor}`}>
                         <IconArrowLeft /> {data.suratSebelumnya.namaLatin}
                     </Link>
@@ -16,7 +16,7 @@ export default function ButtonNextAndprev({ data, page }) {
                 )}
                 {data.suratSelanjutnya ? (
                     <Link
-                        className="block px-2 py-1 font-semibold text-white "
+                        className="flex items-center px-2 py-1 space-x-3 font-semibold text-white "
                         href={`/${page}/${data.suratSelanjutnya.nomor}`}>
                         {data.suratSelanjutnya.namaLatin} <IconArrowRight />
                     </Link>
