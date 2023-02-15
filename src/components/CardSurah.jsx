@@ -1,7 +1,6 @@
 import Button from '@/components/Button'
 import { useEffect } from 'react'
 import ButtonNextAndprev from './ButtonNextAndprev'
-import NavMenuBottom from './NavMenuBottom'
 
 export default function CardSurah(props) {
     const surah = props.data.data

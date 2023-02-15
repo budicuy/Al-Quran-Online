@@ -1,4 +1,4 @@
-import { IconSettings2 } from '@tabler/icons-react'
+import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react'
 import Link from 'next/link'
 
 export default function ButtonNextAndprev({ data, page }) {
@@ -9,7 +9,7 @@ export default function ButtonNextAndprev({ data, page }) {
                     <Link
                         className="block px-2 py-1 font-semibold text-white "
                         href={`/${page}/${data.suratSebelumnya.nomor}`}>
-                        ⬅ {data.suratSebelumnya.namaLatin}
+                        <IconArrowLeft /> {data.suratSebelumnya.namaLatin}
                     </Link>
                 ) : (
                     <span className="block"></span>
@@ -18,7 +18,7 @@ export default function ButtonNextAndprev({ data, page }) {
                     <Link
                         className="block px-2 py-1 font-semibold text-white "
                         href={`/${page}/${data.suratSelanjutnya.nomor}`}>
-                        {data.suratSelanjutnya.namaLatin} ➡
+                        {data.suratSelanjutnya.namaLatin} <IconArrowRight />
                     </Link>
                 ) : (
                     <span className="block"></span>

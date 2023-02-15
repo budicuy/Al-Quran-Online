@@ -1,13 +1,10 @@
 import CardSurah from '@/components/CardSurah'
-import Footer from '@/components/Footer'
 import LoadingComponent from '@/components/LoadingComponent'
 import Navbar from '@/components/Navbar'
-import NavMenuBottom from '@/components/NavMenuBottom'
 import Favicon from '@/meta/Favicon'
 import SeoMeta from '@/meta/SeoMeta'
 import axios from 'axios'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 export default function Detail(props) {
