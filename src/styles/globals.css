@@ -5,33 +5,37 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply bg-gray-200 font-quicksand;
-  }
+    body {
+        @apply bg-purple-500 bg-repeat bg-[url('/img/bg.webp')] [background-size:40px] md:[background-size:100px];
+    }
 
-  ::-webkit-scrollbar {
-    width: 0.5rem;
-  }
+    html {
+        @apply bg-gray-200 font-quicksand;
+    }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-white;
-  }
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    @apply bg-purple-800;
-  }
+    ::-webkit-scrollbar-track {
+        @apply bg-white;
+    }
 
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-purple-900;
-  }
+    ::-webkit-scrollbar-thumb {
+        @apply bg-purple-800;
+    }
 
-  ::-webkit-scrollbar-button {
-    @apply bg-purple-800;
-  }
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-purple-900;
+    }
+
+    ::-webkit-scrollbar-button {
+        @apply bg-purple-800;
+    }
 }
 
 @layer components {
-  .buttonAudio {
-    @apply px-4 py-2 font-bold text-white bg-purple-800 rounded;
-  }
+    .buttonAudio {
+        @apply px-4 py-2 font-bold text-white bg-purple-800 rounded;
+    }
 }
