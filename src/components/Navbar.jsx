@@ -17,24 +17,21 @@ export default function NavbarMenu() {
     }, [])
 
     const navItems = [
-        { name: 'Home', link: '/', icon: '🏠' },
+        { name: 'Home', link: '/', target: '' },
         {
             name: 'About',
             link: '/',
             target: '',
-            icon: '👨‍💻',
         },
         {
             name: 'Github',
             link: 'https://github.com/budicuy',
             target: 'blank',
-            icon: '📂',
         },
         {
             name: 'Kumpulan Doa',
             link: '/',
             target: '',
-            icon: '🤲',
         },
     ]
 
@@ -77,9 +74,7 @@ export default function NavbarMenu() {
                     <div>
                         <div
                             className={`flex-1 justify-self-center transition-all duration-300  md:block md:pb-0 md:mt-0 ${
-                                navbar
-                                    ? '-translate-x-0 block md:relative'
-                                    : '-translate-x-full md:translate-x-0 absolute left-0 md:relative'
+                                navbar ? 'block' : 'hidden'
                             }`}>
                             <ul className="items-center justify-center py-2 space-y-1 md:space-x-4 md:flex md:space-y-0">
                                 {navItems.map((item, index) => (
@@ -88,8 +83,8 @@ export default function NavbarMenu() {
                                         href={item.link}
                                         className="block"
                                         target={item.target}>
-                                        <li className="p-2 font-semibold text-gray-200 transition-all duration-300 rounded md:text-xl hover:text-purple-800 hover:bg-gray-200/50 ">
-                                            {item.icon} {item.name}
+                                        <li className="p-2 font-semibold text-gray-200 transition-all duration-300 rounded md:text-xl hover:text-white hover:bg-gray-200/50 ">
+                                            {item.name}
                                         </li>
                                     </Link>
                                 ))}
