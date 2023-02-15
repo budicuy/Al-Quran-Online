@@ -30,6 +30,12 @@ export default function NavbarMenu() {
             target: 'blank',
             icon: '📂',
         },
+        {
+            name: 'Kumpulan Doa',
+            link: '/',
+            target: '',
+            icon: '🤲',
+        },
     ]
 
     return (
@@ -45,9 +51,14 @@ export default function NavbarMenu() {
                     <div>
                         <div className="flex items-center justify-between py-1 md:py-5 md:block">
                             <Link href="/">
-                                <h2 className="text-xl font-bold md:text-3xl">
-                                    📖 MyQuran
-                                </h2>
+                                <div className="flex justify-center space-x-4 text-xl font-bold md:text-3xl">
+                                    <img
+                                        src="/logo.webp"
+                                        className="h-8 md:h-10 filter"
+                                        alt=""
+                                    />{' '}
+                                    <span>MyQuran</span>
+                                </div>
                             </Link>
                             <div className="md:hidden">
                                 <Hamburger
@@ -70,7 +81,7 @@ export default function NavbarMenu() {
                                     ? '-translate-x-0 block md:relative'
                                     : '-translate-x-full md:translate-x-0 absolute left-0 md:relative'
                             }`}>
-                            <ul className="items-center justify-center py-2 space-y-1 md:flex md:space-y-0">
+                            <ul className="items-center justify-center py-2 space-y-1 md:space-x-4 md:flex md:space-y-0">
                                 {navItems.map((item, index) => (
                                     <Link
                                         key={index}
