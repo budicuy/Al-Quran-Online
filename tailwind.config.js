@@ -6,7 +6,7 @@ module.exports = {
     ],
     theme: {
         fontFamily: {
-            amiri: ['Amiri Quran', 'serif'],
+            ScheherazadeNew: ['Scheherazade New', 'serif'],
             quicksand: ['Quicksand', 'sans-serif'],
         },
         container: {

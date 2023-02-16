@@ -18,7 +18,7 @@ export default function Detail(props) {
     return (
         <div>
             <Head>
-                <title>MyQuran | {data.namaLatin}</title>
+                <title>MyQuran | {data.data.namaLatin} </title>
                 <SeoMeta />
                 <Favicon />
             </Head>

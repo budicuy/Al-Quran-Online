@@ -13,7 +13,9 @@ export default function CardHome(props) {
                     </div>
                 </h3>
                 <hr className="border-b-1" />
-                <p className="mt-5 text-5xl text-right ">{props.surah.nama}</p>
+                <p className="mt-5 text-5xl text-right font-ScheherazadeNew">
+                    {props.surah.nama}
+                </p>
                 <p className="mt-5 font-semibold ">{props.surah.arti}</p>
             </div>
         </Link>

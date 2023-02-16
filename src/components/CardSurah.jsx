@@ -93,7 +93,7 @@ export default function CardSurah(props) {
                                 </div>
                                 <hr className="my-2 border-b-2" />
                                 <div className="leading-none">
-                                    <p className=" font-amiri p-5 text-3xl font-semibold leading-[70px] md:leading-[100px] text-right text-purple-800 md:text-4xl">
+                                    <p className="font-ScheherazadeNew p-5 text-3xl font-semibold leading-[70px] md:leading-[100px] text-right text-purple-800 md:text-4xl">
                                         {ayat.teksArab}
                                     </p>
                                     <p className="block px-5 mt-5 text-lg font-semibold leading-relaxed text-purple-700">
