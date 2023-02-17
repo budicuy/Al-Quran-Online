@@ -3,6 +3,7 @@ export default function SeoMeta() {
         <>
             {/* Seo Meta Tiitle & Desc */}
             <meta name="title" content="MyQuran" />
+            <link rel="manifest" href="/manifest.json" />
             <meta
                 name="description"
                 content="MyQuran adalah aplikasi web yang berisi Al-Quran lengkap dengan terjemahan Bahasa Indonesia dan audio."
