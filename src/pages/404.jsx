@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
-
 import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
@@ -24,10 +23,14 @@ export default function NotFoundPage() {
                 <title>404 | EQuran Gabut</title>
             </Head>
 
-            <img
+            <Image
                 className="object-cover w-full h-full opacity-50"
-                src="/img/404.jpg"
+                src="/img/404.webp"
                 alt="Page Not Found | 404"
+                priority
+                placeholder="/img/404.webp"
+                width={1920}
+                height={1080}
             />
             <div className="absolute z-50 block w-full px-5 text-center text-gray-200 translate-x-1/2 -translate-y-1/2 right-1/2 top-1/2">
                 <h1 className="text-4xl font-bold md:text-5xl lg:text-7xl">

@@ -1,9 +1,10 @@
 {
     "name": "MyQuran",
     "short_name": "MyQuran",
-    "theme_color": "#4624db",
-    "background_color": "#0081e7",
+    "theme_color": "#9f1239",
+    "background_color": "#581c87",
     "display": "standalone",
+    "orientation": "portrait",
     "start_url": "./",
     "icons": [
         {
