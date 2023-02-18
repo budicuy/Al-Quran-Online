@@ -20,17 +20,12 @@ export default function NavbarMenu() {
     const navItems = [
         { name: 'Home', link: '/', target: '' },
         {
-            name: 'About',
+            name: 'Jadwal Sholat (Segera Hadir!)',
             link: '/',
             target: '',
         },
         {
-            name: 'Github',
-            link: 'https://github.com/budicuy',
-            target: 'blank',
-        },
-        {
-            name: 'Kumpulan Doa',
+            name: 'Kumpulan Doa (Segera Hadir!)',
             link: '/',
             target: '',
         },
