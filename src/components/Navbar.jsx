@@ -19,26 +19,15 @@ export default function NavbarMenu() {
 
     const navItems = [
         { name: 'Home', link: '/', target: '' },
-        {
-            name: 'Jadwal Sholat (Segera Hadir!)',
-            link: '/',
-            target: '',
-        },
-        {
-            name: 'Kumpulan Doa (Segera Hadir!)',
-            link: '/',
-            target: '',
-        },
     ]
 
     return (
         <div>
             <nav
-                className={`w-full shadow shadow-purple-800/60 rounded-b-xl text-gray-200 ${
-                    scroll
+                className={`w-full shadow shadow-purple-800/60 rounded-b-xl text-gray-200 ${scroll
                         ? 'apply fixed top-0 z-50 transition-all duration-300 bg-purple-900/70'
                         : 'bg-purple-900'
-                }`}
+                    }`}
                 id="navbar">
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
@@ -71,9 +60,8 @@ export default function NavbarMenu() {
                     </div>
                     <div>
                         <div
-                            className={`flex-1 justify-self-center transition-all duration-300  md:block md:pb-0 md:mt-0 ${
-                                navbar ? 'block' : 'hidden'
-                            }`}>
+                            className={`flex-1 justify-self-center transition-all duration-300  md:block md:pb-0 md:mt-0 ${navbar ? 'block' : 'hidden'
+                                }`}>
                             <ul className="items-center justify-center py-2 space-y-1 md:space-x-4 md:flex md:space-y-0">
                                 {navItems.map((item, index) => (
                                     <Link
