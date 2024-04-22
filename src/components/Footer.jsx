@@ -10,9 +10,9 @@ export default function Footer() {
                         <br />
                         ❤️ made by{' '}
                         <a
-                            href="https://budicuy.my.id/"
+                            href="https://budiannor.my.id/"
                             target="blank">
-                            <u>budicuy.my.id</u>
+                            <u>budiannor.my.id</u>
                         </a>
                     </span>
                 </div>
